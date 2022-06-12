@@ -1,7 +1,9 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {Container, HeaderText, Main, SignUp, SignUpButton} from './style';
 
 export function Header() {
+  const navigation = useNavigation();
   return (
     <Container>
       <Main>
@@ -12,7 +14,13 @@ export function Header() {
       </Main>
       <SignUp>
         <HeaderText fontSize="16px">Don't have account</HeaderText>
-        <SignUpButton children="SignUp" fontSize="16px" />
+        <SignUpButton
+          children="SignUp"
+          fontSize="16px"
+          onPress={() => {
+            navigation.navigate('SignUp');
+          }}
+        />
       </SignUp>
     </Container>
   );
